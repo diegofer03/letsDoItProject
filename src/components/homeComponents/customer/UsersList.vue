@@ -1,6 +1,6 @@
 <template>
   <div class="fixTable rounded">
-    <p class="h3 fixP">Lista de usuarios activos</p>
+    <p class="h3 fixP">Usuarios activos</p>
     <table class="table table-light">
       <thead>
         <tr>
