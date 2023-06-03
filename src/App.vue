@@ -3,13 +3,29 @@
   <div :class="classLoader"></div>
 </template>
 <script>
-import { mapState } from "vuex";
+import { mapState, mapMutations } from "vuex";
 export default {
   data: () => {
     return {};
   },
   computed: {
     ...mapState(["classLoader"]),
+    ...mapMutations(["saveUser"]),
+    refreshPage() {
+      if (
+        localStorage.getItem("userToken") != null ||
+        localStorage.getItem("userToken") != undefined
+      ) {
+        return true;
+      } else {
+        return false;
+      }
+    },
+  },
+  beforeMount() {
+    if (this.refreshPage) {
+      this.saveUser;
+    }
   },
 };
 </script>

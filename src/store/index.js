@@ -7,6 +7,7 @@ export default createStore({
     user: {
       name: null,
       token: null,
+      role: null,
     },
     classLoader: {
       loader: false,
@@ -16,14 +17,17 @@ export default createStore({
   getters: {},
   mutations: {
     saveUser(state) {
-      state.user.name = localStorage.getItem("userName");
+      state.user.name = localStorage.getItem("userEmail");
       state.user.token = localStorage.getItem("userToken");
+      state.user.role = localStorage.getItem("userRole");
     },
     clearUser(state) {
       state.user.name = null;
       state.user.token = null;
-      localStorage.removeItem("userName");
+      state.user.role = null;
+      localStorage.removeItem("userEmail");
       localStorage.removeItem("userToken");
+      localStorage.removeItem("userRole");
     },
     Loader(state, accion) {
       if (accion == "show") {
@@ -32,8 +36,6 @@ export default createStore({
         state.classLoader.loader = false;
       }
     },
-  },
-  actions: {
     refreshPage() {
       if (
         localStorage.getItem("userToken") != null ||
@@ -45,5 +47,6 @@ export default createStore({
       }
     },
   },
+  actions: {},
   modules: {},
 });
