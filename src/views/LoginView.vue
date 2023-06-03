@@ -76,20 +76,9 @@ export default {
       userCreated: false,
     };
   },
-  computed: {
-    ...mapMutations(["refreshPage"]),
-  },
+  computed: {},
   methods: {
-    refreshPage() {
-      if (
-        localStorage.getItem("userToken") != null ||
-        localStorage.getItem("userToken") != undefined
-      ) {
-        return true;
-      } else {
-        return false;
-      }
-    },
+    ...mapMutations(["refreshPage"]),
   },
   mounted() {
     if (

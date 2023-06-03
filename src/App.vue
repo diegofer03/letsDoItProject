@@ -10,21 +10,13 @@ export default {
   },
   computed: {
     ...mapState(["classLoader"]),
-    ...mapMutations(["saveUser"]),
-    refreshPage() {
-      if (
-        localStorage.getItem("userToken") != null ||
-        localStorage.getItem("userToken") != undefined
-      ) {
-        return true;
-      } else {
-        return false;
-      }
-    },
+  },
+  methods: {
+    ...mapMutations(["refreshPage", "saveUser"]),
   },
   beforeMount() {
-    if (this.refreshPage) {
-      this.saveUser;
+    if (this.refreshPage()) {
+      this.saveUser();
     }
   },
 };
