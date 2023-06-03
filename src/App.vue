@@ -12,7 +12,17 @@ export default {
     ...mapState(["classLoader"]),
   },
   methods: {
-    ...mapMutations(["refreshPage", "saveUser"]),
+    ...mapMutations(["saveUser"]),
+    refreshPage() {
+      if (
+        localStorage.getItem("userToken") != null ||
+        localStorage.getItem("userToken") != undefined
+      ) {
+        return true;
+      } else {
+        return false;
+      }
+    },
   },
   beforeMount() {
     if (this.refreshPage()) {

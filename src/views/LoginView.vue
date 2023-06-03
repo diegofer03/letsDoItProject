@@ -21,22 +21,6 @@
                 </div>
               </div>
             </div>
-            <!-- <div class="card-body">
-              <div class="row">
-                <div class="col-sm-12">
-                  <div class="form-check form-switch">
-                    <p class="">aber</p>
-                    <input
-                      type="checkbox"
-                      class="form-check-input"
-                      value=""
-                      id="check"
-                    />
-                    <p class="">aber</p>
-                  </div>
-                </div>
-              </div>
-            </div> -->
             <LogIn v-if="!switchLog" />
             <SignUp v-if="switchLog" />
             <div class="card-body">
@@ -64,7 +48,7 @@
 <script>
 import LogIn from "../components/loginComponents/LogIn.vue";
 import SignUp from "../components/loginComponents/SignUp.vue";
-import { mapMutations } from "vuex";
+// import { mapMutations } from "vuex";
 // import axios from "axios";
 
 export default {
@@ -78,7 +62,16 @@ export default {
   },
   computed: {},
   methods: {
-    ...mapMutations(["refreshPage"]),
+    refreshPage() {
+      if (
+        localStorage.getItem("userToken") != null ||
+        localStorage.getItem("userToken") != undefined
+      ) {
+        return true;
+      } else {
+        return false;
+      }
+    },
   },
   mounted() {
     if (
@@ -91,7 +84,6 @@ export default {
         this.userCreated = false;
       }, 3000);
     }
-
     if (this.refreshPage()) this.$router.replace("/home");
   },
 };

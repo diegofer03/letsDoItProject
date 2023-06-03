@@ -8,7 +8,9 @@
           ></router-link>
         </li>
       </ul>
-      <a class="navbar-brand mb-0 h1">Home</a>
+      <router-link title="Home" to="/home" class="navbar-brand mb-0 h1" href="#"
+        >Home</router-link
+      >
       <a
         title="Salir"
         class="nav-link nav-item text-dark form-inline ml-auto"

@@ -65,7 +65,7 @@
 
 <script>
 // import modalOlvidarClave from "../components/LoginComponents/modalOlvidarClave";
-import { mapActions, mapMutations, mapState } from "vuex";
+import { mapMutations, mapState } from "vuex";
 import axios from "axios";
 
 export default {
@@ -91,7 +91,6 @@ export default {
     ...mapState(["IP", "user"]),
   },
   methods: {
-    ...mapActions(["refreshPage"]),
     ...mapMutations(["saveUser", "Loader"]),
     logIn() {
       this.Loader("show");

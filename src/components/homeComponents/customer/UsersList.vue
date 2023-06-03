@@ -32,7 +32,7 @@ export default {
     ...mapState(["user", "IP"]),
   },
   methods: {
-    ...mapMutations(["Loader", "refreshPage"]),
+    ...mapMutations(["Loader"]),
     getListUsers() {
       this.Loader("show");
       axios
@@ -45,6 +45,16 @@ export default {
           console.log(error);
           this.Loader("hide");
         });
+    },
+    refreshPage() {
+      if (
+        localStorage.getItem("userToken") != null ||
+        localStorage.getItem("userToken") != undefined
+      ) {
+        return true;
+      } else {
+        return false;
+      }
     },
   },
   mounted() {

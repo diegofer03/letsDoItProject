@@ -36,16 +36,17 @@ export default createStore({
         state.classLoader.loader = false;
       }
     },
-    refreshPage() {
-      if (
-        localStorage.getItem("userToken") != null ||
-        localStorage.getItem("userToken") != undefined
-      ) {
-        return true;
-      } else {
-        return false;
-      }
-    },
+    // refreshPage() {
+    //   console.log(localStorage.getItem("userToken"));
+    //   if (
+    //     localStorage.getItem("userToken") != null ||
+    //     localStorage.getItem("userToken") != undefined
+    //   ) {
+    //     return true;
+    //   } else {
+    //     return false;
+    //   }
+    // },
   },
   actions: {},
   modules: {},

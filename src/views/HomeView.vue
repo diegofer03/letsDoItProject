@@ -16,7 +16,7 @@
 import NavbarComponent from "@/components/homeComponents/navigation/NavbarComponent.vue";
 import UserInfo from "@/components/homeComponents/customer/UserInfo.vue";
 import UserList from "@/components/homeComponents/customer/UsersList.vue";
-import { mapMutations } from "vuex";
+// import { mapMutations } from "vuex";
 
 export default {
   components: { NavbarComponent, UserInfo, UserList },
@@ -24,7 +24,16 @@ export default {
     return {};
   },
   methods: {
-    ...mapMutations(["refreshPage"]),
+    refreshPage() {
+      if (
+        localStorage.getItem("userToken") != null ||
+        localStorage.getItem("userToken") != undefined
+      ) {
+        return true;
+      } else {
+        return false;
+      }
+    },
   },
   mounted() {
     if (!this.refreshPage()) this.$router.replace("/");
